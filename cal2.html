@@ -12,15 +12,18 @@
             font-size: 20pt;
             margin: 5px;
         }
-        .bold_text{
+
+        .bold_text {
             font-weight: bold;
         }
+
         .card {
             padding: 10px;
             border-style: solid;
             width: 400px;
             text-align: center;
         }
+
         .w100px {
             width: 100px;
         }
@@ -32,12 +35,12 @@
         <div><input type="text" id="num1" value="0" class="center_text"></div>
         <div class="center_text bold_text">+</div>
         <div><input type="text" id="num2" value="0" class="center_text"></div>
-        <div><button class="center_text w100px" onclick ="doAdd()">=</button></div>
+        <div><button class="center_text w100px" onclick="doAdd()">=</button></div>
         <div id="result" class="center_text">0</div>
     </div>
 </body>
 <script>
-    function doAdd(){
+    function doAdd() {
         const strNum1 = document.getElementById("num1").value;
         const strNum2 = document.getElementById("num2").value;
         const result = parseInt(strNum1) + parseInt(strNum2);
@@ -45,4 +48,5 @@
         document.getElementById("result").innerHTML = result;
     }
 </script>
+
 </html>
