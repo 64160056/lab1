@@ -38,10 +38,11 @@
         <div><input type="text" ref="num2" v-model="state.num2 " class="center_text"></div>
         <div><button class="center_text w100px" @click="doAdd()">=</button></div>
         <div class="center_text" ref="result">{{state.result}}</div>
+        <div>{{state.num1}} + {{state.num2}}={{result}}</div>
     </div>
 </body>
 <script>
-    const { createApp, reactive } = Vue
+    const { createApp, reactive, computed } = Vue
     createApp({
 
         setup() {
@@ -50,10 +51,13 @@
                 num2: "1",
                 result: 2
             })
+            const result = computed(function(){
+                return parseInt(state.num1)+parseInt(state.num2)
+            })
             const doAdd = function () {
                 state.result = parseInt(state.num1) + parseInt(state.num2)
             }
-            return { state, doAdd }
+            return { state, doAdd, result }
         }
     }).mount('#app')
 </script>
