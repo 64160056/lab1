@@ -12,15 +12,18 @@
             font-size: 20pt;
             margin: 5px;
         }
-        .bold_text{
+
+        .bold_text {
             font-weight: bold;
         }
+
         .card {
             padding: 10px;
             border-style: solid;
             width: 400px;
             text-align: center;
         }
+
         .w100px {
             width: 100px;
         }
@@ -30,25 +33,29 @@
 
 <body>
     <div id="app" class="card">
-        <div><input type="text" ref="num1" v-model="state.num1 " value="0" class="center_text"></div>
+        <div><input type="text" ref="num1" v-model="state.num1 " class="center_text"></div>
         <div class="center_text bold_text">+</div>
-        <div><input type="text" ref="num2" value="0" class="center_text"></div>
-        <div><button class="center_text w100px">=</button></div>
-        <div class="center_text" ref="result">0</div>
+        <div><input type="text" ref="num2" v-model="state.num2 " class="center_text"></div>
+        <div><button class="center_text w100px" @click="doAdd()">=</button></div>
+        <div class="center_text" ref="result">{{state.result}}</div>
     </div>
 </body>
 <script>
-    const {createApp, reactive} = Vue 
+    const { createApp, reactive } = Vue
     createApp({
-        
-        setup(){
+
+        setup() {
             const state = reactive({
                 num1: "1",
                 num2: "1",
-                result: 2 
+                result: 2
             })
-            return {state}
+            const doAdd = function () {
+                state.result = parseInt(state.num1) + parseInt(state.num2)
+            }
+            return { state, doAdd }
         }
     }).mount('#app')
 </script>
+
 </html>
